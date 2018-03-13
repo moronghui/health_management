@@ -1,0 +1,23 @@
+{
+  "name": "health_management",
+  "version": "1.0.0",
+  "description": "personal health management system",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moronghui/health_management.git"
+  },
+  "keywords": [
+    "health",
+    "nodejs"
+  ],
+  "author": "moronghui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moronghui/health_management/issues"
+  },
+  "homepage": "https://github.com/moronghui/health_management#readme"
+}
