@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/moronghui/health_management/issues"
   },
-  "homepage": "https://github.com/moronghui/health_management#readme"
+  "homepage": "https://github.com/moronghui/health_management#readme",
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
 }
