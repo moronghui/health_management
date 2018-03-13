@@ -1,0 +1,9 @@
+.welcome{ text-align: center; margin-top: 2em; margin-bottom: 2em;}
+.nav.ui-navbar.ui-mini{ margin-bottom: 3em;}
+.form_item{ margin-bottom: 2em;}
+.form_btn{ text-align: center;}
+.form_btn .ui-btn-inner{ min-width: 4em; font-size: 18px;}
+.ui-btn-icon-left .ui-icon{ left: 30px;}
+.form_item.verificationCode{ display: none}
+.setPassword{margin-top: 2em;}
+.setPassword.login_set{ float: right}
