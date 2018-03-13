@@ -1,0 +1,19 @@
+.banner{ height: 9em;background: url(./images/banner300.jpg) no-repeat center; background-size: cover}
+.daily h2{ border-bottom: 1px solid #000; padding-bottom: .35em;}
+.daily_item{ height: 6em; position: relative}
+.daily_item .square{ width: 90%; height: 50%; position: absolute; top: 50px; left: 5%;}
+.daily_item .square.bweight{ background: rgb(153, 97, 179);}
+.daily_item .square.bheight{ background: rgb(218, 88, 174);}
+.daily_item .square.brate{ background: rgb(245, 103, 150);}
+.daily_item .circle{ width: 4em; height: 4em; position: absolute; border-radius: 50%; left: 22%; top: 5%;}
+.daily_item .weight{ background: url(./images/weight.png) no-repeat center; background-size: cover;}
+.daily_item .height{ background: url(./images/height.jpg) no-repeat center; background-size: cover;}
+.daily_item .rate{ background: url(./images/rate.png) no-repeat center; background-size: cover;}
+.daily_item .text{ position: absolute; bottom: .25em; width: 100%; text-align: center; color: #fff; font-size: 16px;}
+.daily_grid{ margin-bottom: 1em;}
+.daily_item .square.bblood{ background: rgb(25, 120, 209);}
+.daily_item .square.btemperature{ background: rgb(61, 223, 188);}
+.daily_item .square.bbreathe{ background: rgb(118, 201, 93);}
+.daily_item .blood{ background: url(./images/blood.jpg) no-repeat center; background-size: cover;}
+.daily_item .temperature{ background: url(./images/temperature.jpg) no-repeat center; background-size: cover;}
+.daily_item .breathe{ background: url(./images/breathe.jpg) no-repeat center; background-size: cover;}
