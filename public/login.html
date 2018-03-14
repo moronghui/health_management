@@ -21,8 +21,8 @@
             <h2 class="welcome">欢迎登陆</h2>
             <div class="nav" data-role="navbar">
                 <ul>
-                    <li><a href="#" class="ui-btn-active">密码登陆</a></li>
-                    <li><a href="#">手机验证码登陆</a></li>
+                    <li><a href="#" class="ui-btn-active" id="form_pass" data-form="1">密码登陆</a></li>
+                    <li><a href="#" id="form_phone">手机验证码登陆</a></li>
                 </ul>
             </div>
             <!-- 密码登陆表单 -->
@@ -32,7 +32,7 @@
                         <label for="phone" class="ui-hidden-accessible">手机号</label>
                         <input type="text" name="phone" id="phone" placeholder="请输入手机号">
                     </div>
-                    <div class="form_item">
+                    <div class="form_item password">
                         <label for="password" class="ui-hidden-accessible">密码</label>
                         <input type="text" name="password" id="password" placeholder="请输入密码">
                     </div>
@@ -41,7 +41,7 @@
                         <input type="text" name="verificationCode" id="verificationCode" placeholder="请输入验证码">
                     </div>
                     <div class="form_btn">
-                        <button type="submit" data-inline="true" data-icon="check">登陆</button>
+                        <a data-role="button" id="submit" data-inline="true" data-icon="check">登陆</a>
                         <button type="reset" data-inline="true" data-icon="refresh">重置</button>
                     </div>
                 </form>
@@ -78,18 +78,16 @@
                         <input type="text" name="setpass_verificationCode" id="setpass_verificationCode" placeholder="请输入验证码">
                     </div>
                     <div class="form_btn">
-                        <button type="submit" data-inline="true" data-icon="check">确认</button>
+                        <a data-role="button" id="setpass_submit" data-inline="true" data-icon="check">确认</a>
                         <button type="reset" data-inline="true" data-icon="refresh">重置</button>
                     </div>
                 </form>
             </div>
             <div class="setPassword">
-                <a href="index.html" data-transition="flow" data-role="button" data-theme="b" data-inline="true">返回登陆 >></a>
+                <a href="#login" data-transition="flow" data-role="button" data-theme="b" data-inline="true">返回登陆 >></a>
             </div>
         </div>
     </div>
+<script src="js/login.js"></script>
 </body>
-<script>
-</script>
-
 </html>

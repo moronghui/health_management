@@ -1,5 +1,5 @@
 .banner{ height: 9em;background: url(./images/banner300.jpg) no-repeat center; background-size: cover}
-.daily h2{ border-bottom: 1px solid #000; padding-bottom: .35em;}
+.daily h2{ border-bottom: 1px solid #000; padding-bottom: .3em; margin-top: .6em}
 .daily_item{ height: 6em; position: relative}
 .daily_item .square{ width: 90%; height: 50%; position: absolute; top: 50px; left: 5%;}
 .daily_item .square.bweight{ background: rgb(153, 97, 179);}
@@ -17,3 +17,15 @@
 .daily_item .blood{ background: url(./images/blood.jpg) no-repeat center; background-size: cover;}
 .daily_item .temperature{ background: url(./images/temperature.jpg) no-repeat center; background-size: cover;}
 .daily_item .breathe{ background: url(./images/breathe.jpg) no-repeat center; background-size: cover;}
+.habit h2, .assessment h2{ border-bottom: 1px solid #000; padding-bottom: .3em; margin-top: 1.5em}
+.daily_item .square.bsports{ background: rgb(18, 221, 28);}
+.daily_item .square.bdrink{ background: rgb(238, 186, 43);}
+.daily_item .square.bsmoke{ background: rgb(23, 233, 233);}
+.daily_item .sports{ background: url(./images/sports.jpg) no-repeat center; background-size: cover;}
+.daily_item .drink{ background: url(./images/drink.png) no-repeat center; background-size: cover;}
+.daily_item .smoke{ background: url(./images/smoke.jpg) no-repeat center; background-size: cover;}
+.assessment{ margin-bottom: 4em;}
+.daily_item .square.bmedicalrecord{ background: #e720d6;}
+.daily_item .square.breports{ background: rgb(236, 75, 102);}
+.daily_item .medicalrecord{ background: url(./images/medicalrecord.jpg) no-repeat center; background-size: cover;}
+.daily_item .reports{ background: url(./images/reports.jpg) no-repeat center; background-size: cover;}
