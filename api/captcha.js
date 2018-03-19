@@ -40,6 +40,7 @@ function getCode(req, res) {
 function verCode(req, res, code) {
     if (!code) {
         util.result('201', '错误', null, res);
+        return ;
     }
     if (req.session.captcha == code) {
         util.result('200', '正确', null, res);
@@ -64,16 +65,16 @@ function sendCaptcha(req, res, phone, token){
     request(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             body = JSON.parse(body);
-            send_callback(body.error_code);
+            send_callback(body);
             return;
         }
         send_callback(1);
     })
-    function send_callback(error_code) {
-        if (error_code == '0') {
+    function send_callback(body) {
+        if (body.error_code == '0') {
             util.result('200', '发送成功', null, res);
         }else{
-            util.result('201', '发送失败', null, res)
+            util.result('201', '发送失败', body, res)
         }
     }
 }
