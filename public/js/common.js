@@ -215,7 +215,7 @@
 
 
 
-var api_host = 'http://localhost:4000/api/';
+var api_host = 'http://www.moronghui.cn:4000/api/';
 
 function ajaxFun(type, url, data, success_callback, error_callback){
     $.ajax({
