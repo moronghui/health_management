@@ -38,7 +38,9 @@ function getCode(req, res) {
  * @return {string} code 200 正确; 201 错误 
  */
 function verCode(req, res, code) {
-    console.log(req.session.captcha);
+    if (!code) {
+        util.result('201', '错误', null, res);
+    }
     if (req.session.captcha == code) {
         util.result('200', '正确', null, res);
     }else{

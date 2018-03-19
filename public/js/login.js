@@ -107,7 +107,7 @@ $(document).on("pageinit","#login",function(){
                 ajaxFun('POST', api_host +'sendCaptcha', {phone:phone,token:$.md5($.md5(phone))}, function(data) {}, function(data){})
             }else{
                 alert('图形验证码错误');
-                $("#login_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random() * 1000));
+                $("#login_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random() * 1000));
             }
         },function(){})
     })
@@ -116,9 +116,9 @@ $(document).on("pageinit","#login",function(){
 })
 
 $(document).on("pageshow","#login",function(){
-    $("#login_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random()*1000));//动态刷新图形验证码
+    $("#login_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random()*1000));//动态刷新图形验证码
     $("#login_img").on('tap', function(){
-        $("#login_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random() * 1000));
+        $("#login_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random() * 1000));
     })
     var form = $('#form_pass').attr('data-form');
     if (form == '1') {
@@ -195,7 +195,7 @@ $(document).on('pageinit','#setPassword',function(){
                 ajaxFun('POST', api_host + 'sendCaptcha', { phone: phone, token: $.md5($.md5(phone)) }, function (data) { }, function (data) { })
             } else {
                 alert('图形验证码错误');
-                $("#setpass_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random() * 1000));
+                $("#setpass_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random() * 1000));
             }
         }, function () { })
     })
@@ -252,8 +252,8 @@ $(document).on('pageinit','#setPassword',function(){
 })
 
 $(document).on("pageshow", "#setPassword", function () {
-    $("#setpass_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random() * 1000));//动态刷新图形验证码
+    $("#setpass_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random() * 1000));//动态刷新图形验证码
     $("#setpass_img").on('tap', function () {
-        $("#setpass_img").attr('src', 'http://localhost:4000/api/getCode?v=' + Math.floor(Math.random() * 1000));
+        $("#setpass_img").attr('src', api_host + 'getCode?v=' + Math.floor(Math.random() * 1000));
     })
 })
