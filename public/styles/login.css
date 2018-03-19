@@ -7,3 +7,39 @@
 .form_item.verificationCode{ display: none}
 .setPassword{margin-top: 2em;}
 .setPassword.login_set{ float: right}
+.captcha{
+    overflow: hidden;
+}
+.captcha_text,.ver_text{
+    float:left;
+    width:50%
+}
+.captcha_image,.ver_btn{
+    float:left;
+    width:45%;
+    margin-left: 5%;
+}
+.verify{
+    overflow: hidden;
+}
+.verify .ui-btn{
+   margin-top: .2em
+}
+#setcaptcha,#setpass_setcaptcha{
+    display: block;
+    width: 80%;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    border-radius: .75em;
+    margin-top: .3em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+.no_set{
+    background: rgb(66, 93, 211);
+}
+.set{
+    background: rgb(97, 117, 204)
+}

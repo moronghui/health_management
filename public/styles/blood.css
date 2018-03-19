@@ -45,3 +45,10 @@
 .ui-li-has-count.ui-li-divider .ui-li-count, .ui-li-has-count .ui-link-inherit .ui-li-count{
     margin-top: -.7em;
 }
+.back_btn{
+    position: absolute;
+    bottom: 0px;
+    font-size: 2rem;
+    color: #000;
+    left: 2.5%;
+}
