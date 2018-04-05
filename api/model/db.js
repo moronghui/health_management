@@ -50,13 +50,13 @@ exports.insertOne = function(collection, json, callback) {
  * @param {*} json 
  * @param {*} callback 
  */
-exports.find = function(collection, json, callback, sort = null) {
+exports.find = function(collection, json, callback, sort = null, limit=0) {
     _connectDB((err, client) => {
         if (err) {
             callback(err, null);
             return;
         }
-        var cursor = client.db(config.db_name).collection(collection).find(json).sort(sort);
+        var cursor = client.db(config.db_name).collection(collection).find(json).sort(sort).limit(limit);
         var result = [];
         cursor.each(function (err, doc) {
             if (err) {

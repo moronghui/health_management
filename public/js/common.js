@@ -215,7 +215,8 @@
 
 
 
-var api_host = 'http://www.moronghui.cn:4000/api/';
+var api_host = 'http://www.moronghui.cn:4000/api/'; //服务器
+//var api_host = 'http://localhost:4000/api/';  //本地调试
 
 function ajaxFun(type, url, data, success_callback, error_callback){
     $.ajax({
@@ -241,5 +242,172 @@ function setSession(key, value){
  * @param {*} key 
  */
 function getSession(key) {
-    sessionStorage.getItem(key);
+    return sessionStorage.getItem(key);
+}
+
+/**
+ * 根据url获取对应的健康信息类型
+ */
+function getType() {
+    var arr1 = location.href.split('?');
+    if (arr1.length > 1) {
+        var arr2 = arr1[1].split('=');
+        if (arr2.length > 1) {
+            return arr2[1];
+        } 
+    }
+}
+
+/**
+ * 根据类型，返回该类型单位
+ */
+function getUnit() {
+    var type = getType();
+    switch (type) {
+        case 'blood':
+            return 'mmHg';
+            break;
+        case 'weight':
+            return 'kg';
+            break;
+        case 'height':
+            return 'cm';
+            break;
+        case 'rate':
+            return '次/分';
+            break;
+        case 'temperature':
+            return '℃';
+            break;
+        case 'breath':
+            return '次/分';
+            break;
+        case 'sports':
+            return '(步)';
+            break;
+        case 'drink':
+            return '(克)';
+            break;
+        case 'smoke':
+            return '(根)';
+            break;
+    }
+}
+
+/**
+ * 根据类型和data对象返回该类型数据格式
+ */
+function getData(data){
+    var type = getType();
+    switch (type) {
+        case 'blood':
+            return (data.height_blood + '/' + data.low_blood);
+            break;
+        case 'weight':
+            return data.weight;
+            break;
+        case 'height':
+            return data.height;
+            break;
+        case 'rate':
+            return data.rate;
+            break;
+        case 'temperature':
+            return data.temperature;
+            break;
+        case 'breath':
+            return data.breath;
+            break;
+        case 'sports':
+            return data.sports;
+            break;
+        case 'drink':
+            return data.drink;
+            break;
+        case 'smoke':
+            return data.smoke;
+            break;
+    }
+}
+
+/**
+ * 根据类型返回标题文字
+ */
+function getTitle(){
+    var type = getType();
+    switch (type) {
+        case 'blood':
+            return '血压';
+            break;
+        case 'weight':
+            return '体重';
+            break;
+        case 'height':
+            return '身高';
+            break;
+        case 'rate':
+            return '心率';
+            break;
+        case 'temperature':
+            return '体温';
+            break;
+        case 'breath':
+            return '呼吸';
+            break;
+        case 'sports':
+            return '运动';
+            break;
+        case 'drink':
+            return '喝酒';
+            break;
+        case 'smoke':
+            return '抽烟';
+            break;
+    }
+}
+
+/**
+ * 根据类型生成参数对象
+ */
+function getParam() {
+    var type = getType();
+    switch (type) {
+        case 'blood':
+            var height_blood = $('#height_blood').val();
+            var low_blood = $('#low_blood').val();
+            return { height_blood: height_blood, low_blood: low_blood };
+            break;
+        case 'weight':
+            var weight = $('#weight').val();
+            return {weight: weight};
+            break;
+        case 'height':
+            var height = $('#height').val();
+            return { height: height };
+            break;
+        case 'rate':
+            var rate = $('#rate').val();
+            return { rate: rate };
+            break;
+        case 'temperature':
+            var temperature = $('#temperature').val();
+            return { temperature: temperature };
+            break;
+        case 'breath':
+            var breath = $('#breath').val();
+            return { breath: breath };
+            break;
+        case 'sports':
+            var sports = $('#sports').val();
+            return { sports: sports };
+            break;
+        case 'drink':
+            var drink = $('#drink').val();
+            return { drink: drink };
+            break;
+        case 'smoke':
+            var smoke = $('#smoke').val();
+            return { smoke: smoke };
+            break;
+    }
 }

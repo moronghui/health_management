@@ -15,30 +15,91 @@
 <body>
     <div data-role="page" id="addRecord">
         <div data-role="header" data-theme="b">
-            <span class="back_btn" onclick="history.go(-1)">&lt;</span>
-            <h1>记<span>血压</span></h1>
+            <span class="back_btn" id="back_btn">&lt;</span>
+            <h1>记<span id="typeTitle">血压</span></h1>
         </div>
         <div data-role="content">
             <form method="post" action="">
-                <div data-role="fieldcontain">
-                    <label for="height_blood">高压:</label>
-                    <input type="range" name="height_blood" id="height_blood" value="110" min="30" max="300">
+                <!--体重-->
+                <div class="weight typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="weight">体重(kg):</label>
+                        <input type="range" name="weight" step="0.5" id="weight" value="60" min="30" max="150">
+                    </div>
                 </div>
-                <div data-role="fieldcontain">
-                    <label for="low_blood">低压:</label>
-                    <input type="range" name="low_blood" id="low_blood" value="80" min="30" max="280">
+                <!--身高-->
+                <div class="height typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="height">身高(cm):</label>
+                        <input type="range" name="height" step="1" id="height" value="160" min="120" max="220">
+                    </div>
                 </div>
+                <!--心率-->
+                <div class="rate typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="rate">心率(次/分):</label>
+                        <input type="range" name="rate" step="1" id="rate" value="70" min="50" max="150">
+                    </div>
+                </div>
+                <!--血压-->
+                <div class="blood typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="height_blood">高压(mmHg):</label>
+                        <input type="range" name="height_blood" id="height_blood" value="110" min="30" max="300">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="low_blood">低压(mmHg):</label>
+                        <input type="range" name="low_blood" id="low_blood" value="80" min="30" max="280">
+                    </div>
+                </div>
+                <!--体温-->
+                <div class="temperature typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="temperature">体温(℃):</label>
+                        <input type="range" name="temperature" id="temperature" step="0.1" value="35.5" min="32" max="42">
+                    </div>
+                </div>
+                <!--呼吸-->
+                <div class="breath typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="rate">呼吸(次/分):</label>
+                        <input type="range" name="breath" step="1" id="breath" value="18" min="5" max="40">
+                    </div>
+                </div>
+                <!--运动-->
+                <div class="sports typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="sports">运动(步):</label>
+                        <input type="range" name="sports" step="100" id="sports" value="5000" min="0" max="40000">
+                    </div>
+                </div>
+                <!--喝酒-->
+                <div class="drink typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="drink">喝酒量(克):</label>
+                        <input type="range" name="drink" step="10" id="drink" value="0" min="0" max="2000">
+                    </div>
+                </div>
+                <!--抽烟-->
+                <div class="smoke typeitem">
+                    <div data-role="fieldcontain">
+                        <label for="smoke">抽烟(根):</label>
+                        <input type="range" name="smoke" step="1" id="smoke" value="0" min="0" max="100">
+                    </div>
+                </div>
+
                 <div data-role="fieldcontain">
                     <label for="time">时间:</label>
                     <input type="datetime-local" name="time" id="time">
                 </div>
             </form>
             <div id="record">
-                <a href="#" class="record">保存</a>
+                <a href="#" class="record" id="save">保存</a>
             </div>
         </div>
     </div>
-    <script src="js/blood.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/addRecord.js"></script>
 </body>
 
 </html>

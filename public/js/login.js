@@ -175,7 +175,7 @@ $(document).on('pageinit','#setPassword',function(){
                 setFlag = true;
                 _this.removeClass('no_set');
                 _this.addClass('set');
-                var count = 10
+                var count = 60
                 var timer;
                 var btn = _this;
                 btn.text('验证码(' + count + ')');

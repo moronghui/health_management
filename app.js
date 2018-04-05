@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var captcha = require("./api/captcha.js");
 var config = require('./api/config.js');
 var util = require('./api/util.js');
+var record = require('./api/record.js');
 var app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -77,12 +78,44 @@ app.post('/api/setpassword', (req, res) => {
     captcha.setpassword(req, res, captchacode, phone, password);
 });
 
+/**
+ * 通过密码登陆
+ */
 app.get('/api/login', (req, res) => {
     var phone = req.query.phone;
     var password = req.query.password;
     captcha.login(req, res, phone, password);
 })
 
+/**
+ * 添加一条健康记录
+ */
+app.post('/api/addRecord', (req, res) => {
+    var phone = req.body.phone;
+    var type = req.body.type;//记录类别，如身高、体重
+    var date = req.body.date;//记录日期
+    var time = req.body.time;//记录时间
+    var data = req.body.data;//对象类型，记录数据，不同类别信息属性不同
+    record.addRecord(phone, type, date, time, data, res);
+})
+
+/**
+ * 获取历史数据
+ */
+app.post('/api/getRecords', (req, res) => {
+    var phone = req.body.phone;
+    var type = req.body.type;//记录类别，如身高、体重
+    record.getRecords(phone, type, res);
+})
+
+/**
+ * 获取最近一条记录
+ */
+app.post('/api/latestRecord', (req, res) => {
+    var phone = req.body.phone;
+    var type = req.body.type;//记录类别，如身高、体重
+    record.latestRecord(phone, type, res);
+})
 
 app.listen(4000, () => console.log('服务器正运行在4000端口上！'));
 

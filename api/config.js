@@ -7,11 +7,15 @@ var tpl_id = '67010'; //验证码模板
 var db_url = 'mongodb://localhost:27017';
 var db_name = 'health_management';
 
+//历史数据展示条数
+var records_num = 30;
+
 exports.AppKey = AppKey
 exports.send_host = send_host
 exports.tpl_id = tpl_id
 exports.db_url = db_url
 exports.db_name = db_name
+exports.records_num = records_num
 
 //需要验证是否登录的页面
 exports.page_path = [
