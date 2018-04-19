@@ -38,7 +38,7 @@ $(document).on('pageshow','#blood',function(){
     })
 })
 $(document).on('pageinit', "#blood", function() {
-    $('#record_btn').on('click', function(){
+    $('#record_btn').on('tap', function(){
         location.replace('addRecord.html?type=' + getType());
     })
 })

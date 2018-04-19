@@ -411,3 +411,18 @@ function getParam() {
             break;
     }
 }
+
+/**
+ * 获取url中id
+ */
+function getQueryId(params) {
+    var arr = location.href.split('?');
+    var id = '';
+    if ((arr.length > 1)) {
+        var arr2 = arr[1].split('=');
+        if (arr2.length > 1) {
+            id = arr2[1];
+        }
+    }
+    return id;
+}

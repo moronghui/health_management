@@ -1,0 +1,23 @@
+.back_btn{
+    position: absolute;
+    bottom: 0px;
+    font-size: 2rem;
+    color: #000;
+    left: 2.5%;
+}
+#record .record{
+    display: block;
+    width: 50%;
+    text-decoration: none;
+    border-radius: 1em;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    background: blueviolet;
+    margin-left: 25%;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 4em;
+    margin-top: 4em
+}

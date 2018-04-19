@@ -1,0 +1,11 @@
+.back_btn{
+    position: absolute;
+    bottom: 0px;
+    font-size: 2rem;
+    color: #000;
+    left: 2.5%;
+}
+.btns{
+    text-align: center;
+    margin-top: 1em;
+}

@@ -21,7 +21,10 @@ exports.records_num = records_num
 exports.page_path = [
     '/static/index.html',
     '/static/blood.html',
-    '/static/addRecord.html'
+    '/static/addRecord.html',
+    '/static/addmedicalrecord.html',
+    '/static/editmedicalrecord.html',
+    '/static/medicalrecord.html'
 ]
 
 //需要验证的接口

@@ -117,5 +117,27 @@ app.post('/api/latestRecord', (req, res) => {
     record.latestRecord(phone, type, res);
 })
 
+/**
+ * 根据id获取一条记录
+ */
+app.post('/api/getRecordById', (req, res) => {
+    var id = req.body.id;
+    var type = req.body.type;//记录类别，如身高、体重
+    record.getRecordById(type, id, res);
+})
+
+/**
+ * 根据id更新医疗记录
+ */
+app.post('/api/updateById', (req, res) => {
+    var phone = req.body.phone;
+    var type = req.body.type;//记录类别，如身高、体重
+    var date = req.body.date;//记录日期
+    var time = req.body.time;//记录时间
+    var data = req.body.data;//对象类型，记录数据，不同类别信息属性不同
+    var id = req.body.id; //id
+    record.updateById(phone, type, id, date, time, data, res);
+})
+
 app.listen(4000, () => console.log('服务器正运行在4000端口上！'));
 
