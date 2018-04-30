@@ -24,7 +24,8 @@ exports.page_path = [
     '/static/addRecord.html',
     '/static/addmedicalrecord.html',
     '/static/editmedicalrecord.html',
-    '/static/medicalrecord.html'
+    '/static/medicalrecord.html',
+    '/static/report.html'
 ]
 
 //需要验证的接口

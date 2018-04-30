@@ -1,1 +1,2 @@
-.header{ border-bottom: 1px solid #000; padding-bottom: .3em; margin-top: .6em}}
+.header{ padding: .3em; margin-top: .6em; font-size: 1.2em; background: rgb(78, 162, 240); color: #fff; font-weight: 300;}
+.content{ margin: .4em auto; border-bottom: 1px #ccc solid; color: rgb(105, 103, 103); font-size: 1.1em; padding: 1em;}

@@ -5,6 +5,7 @@ var captcha = require("./api/captcha.js");
 var config = require('./api/config.js');
 var util = require('./api/util.js');
 var record = require('./api/record.js');
+var report = require('./api/report.js');
 var app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
@@ -137,6 +138,14 @@ app.post('/api/updateById', (req, res) => {
     var data = req.body.data;//对象类型，记录数据，不同类别信息属性不同
     var id = req.body.id; //id
     record.updateById(phone, type, id, date, time, data, res);
+})
+
+/**
+ * 获取健康报告
+ */
+app.post('/api/getReport', (req, res) => {
+    var phone = req.body.phone;
+    report.getReport(phone, res);
 })
 
 app.listen(4000, () => console.log('服务器正运行在4000端口上！'));

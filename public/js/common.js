@@ -268,7 +268,7 @@ function getUnit() {
             return 'mmHg';
             break;
         case 'weight':
-            return 'kg';
+            return 'cm/kg';
             break;
         case 'height':
             return 'cm';
@@ -304,7 +304,7 @@ function getData(data){
             return (data.height_blood + '/' + data.low_blood);
             break;
         case 'weight':
-            return data.weight;
+            return (data.height + '/' + data.weight);
             break;
         case 'height':
             return data.height;
@@ -340,7 +340,7 @@ function getTitle(){
             return '血压';
             break;
         case 'weight':
-            return '体重';
+            return '身高/体重';
             break;
         case 'height':
             return '身高';
@@ -379,7 +379,8 @@ function getParam() {
             break;
         case 'weight':
             var weight = $('#weight').val();
-            return {weight: weight};
+            var height = $('#height').val();
+            return {weight: weight, height: height};
             break;
         case 'height':
             var height = $('#height').val();

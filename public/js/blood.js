@@ -30,7 +30,7 @@ $(document).on('pageshow','#blood',function(){
         for(var i = 0; i < data.length; i++){
             var liStr = '';
             for (j = 0; j < data[i].times.length; j++) {
-                liStr += '<li><a href="#"><span>' + getData(data[i].times[j].data) + getUnit() + '</span><span class="ui-li-count">' + data[i].times[j].time+'</span></a></li>';
+                liStr += '<li><a href="#"><span>' + getData(data[i].times[j].data) + '</span><span class="ui-li-count">' + data[i].times[j].time+'</span></a></li>';
             }
             htmlStr += '<div data-role="collapsible" data-theme="b" data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u"><h3> '+data[i].date+' </h3><ul data-role="listview">'+liStr+'</ul></div >';
         }
