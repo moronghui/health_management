@@ -3,7 +3,10 @@ $(document).on('pageinit', '#index', function () {
         var type = $(this).attr('data-mytype');
         location.href = 'blood.html?type='+type;
     })
-    $('.medicalrecord').on('tap', function(){
+    $('.medicalrecord_item').on('tap', function(){
         location.href = 'medicalrecord.html';
+    })
+    $('.reports_item').on('tap', function () {
+        location.href = 'report.html';
     })
 })

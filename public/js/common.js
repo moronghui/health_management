@@ -215,8 +215,8 @@
 
 
 
-var api_host = 'http://www.moronghui.cn:4000/api/'; //服务器
-//var api_host = 'http://localhost:4000/api/';  //本地调试
+//var api_host = 'http://www.moronghui.cn:4000/api/'; //服务器
+var api_host = 'http://localhost:4000/api/';  //本地调试
 
 function ajaxFun(type, url, data, success_callback, error_callback){
     $.ajax({
