@@ -12,7 +12,7 @@ exports.getReport = getReport;
 function getReport(phone, res) {
     //var types = ['weight', 'rate', 'blood', 'temperature', 'breath', 'sports', 'drink', 'smoke'];
 
-    var types = ['weight', 'rate', 'blood', 'temperature', 'breath'];
+    var types = ['weight', 'rate', 'blood', 'temperature', 'breath', 'sports', 'drink', 'smoke'];
     var dataArr = [];
     addReport( types[0]);
 
@@ -76,6 +76,108 @@ function getReportByTpye(type, phone, callback) {
 }
 
 /**
+ * 获取吸烟等级
+ * @param {*} smoke
+ */
+function getSmokeDegree(smoke) {
+    var degree = '';
+    var tip = '';
+    if (smoke > 0) {
+        degree = '吸烟行为';
+        tip = '您有吸烟行为，吸烟有害健康，请远离！';
+    } else {
+        degree = '无吸烟行为';
+        tip = '您无吸烟行为，请继续保持，远离烟草！';
+    }
+    return { degree, tip };
+}
+
+/**
+ * 生成吸烟健康报告
+ */
+function smokeReport(result) {
+    if (result.length < 1) {
+        return { type: 'smoke', content: '您还没有记录吸烟信息，请先添加记录。添加记录越多，生成报告越准确！' };
+    }
+    var total = 0;
+    for (let i = 0; i < result.length; i++) {
+        total += Number(result[i].data.smoke);
+    }
+    var aver = (total / result.length).toFixed(2);
+    var latest = result[0].data.smoke;
+    var content = '您最近一次记录的吸烟量为' + latest + '，属于' + getSmokeDegree(latest).degree + '; 最近三十次平均吸烟量为' + aver + ',属于' + getSmokeDegree(aver).degree + '。' + getSmokeDegree(aver).tip;
+    return { type: 'smoke', content: content }
+}
+
+/**
+ * 获取喝酒等级
+ * @param {*} drink
+ */
+function getDrinkDegree(drink) {
+    var degree = '';
+    var tip = '';
+    if (drink > 40) {
+        degree = '饮酒过多';
+        tip = '您饮酒过多，大量酒精容易对肝脏造成危害，请适量饮酒！';
+    } else {
+        degree = '饮酒量正常';
+        tip = '您的饮酒量适度，请继续保持，切勿酗酒！';
+    }
+    return { degree, tip };
+}
+
+/**
+ * 生成喝酒健康报告
+ */
+function drinkReport(result) {
+    if (result.length < 1) {
+        return { type: 'drink', content: '您还没有记录饮酒信息，请先添加记录。添加记录越多，生成报告越准确！' };
+    }
+    var total = 0;
+    for (let i = 0; i < result.length; i++) {
+        total += Number(result[i].data.drink);
+    }
+    var aver = (total / result.length).toFixed(2);
+    var latest = result[0].data.drink;
+    var content = '您最近一次记录的饮酒量为' + latest + '克，属于' + getDrinkDegree(latest).degree + '; 最近三十次平均饮酒量为' + aver + '克,属于' + getDrinkDegree(aver).degree + '。' + getDrinkDegree(aver).tip;
+    return { type: 'drink', content: content }
+}
+
+/**
+ * 获取运动等级
+ * @param {*} sports
+ */
+function getSportsDegree(sports) {
+    var degree = '';
+    var tip = '';
+    if (sports < 6000) {
+        degree = '运动过少';
+        tip = '您运动过少，运动最好的方式就是走路，多出去看看远方吧！';
+    } else {
+        degree = '运动达标';
+        tip = '您的运动达标，请继续保持';
+    }
+    return { degree, tip };
+}
+
+/**
+ * 生成运动健康报告
+ */
+function sportsReport(result) {
+    if (result.length < 1) {
+        return { type: 'sports', content: '您还没有记录运动信息，请先添加记录。添加记录越多，生成报告越准确！' };
+    }
+    var total = 0;
+    for (let i = 0; i < result.length; i++) {
+        total += Number(result[i].data.sports);
+    }
+    var aver = (total / result.length).toFixed(2);
+    var latest = result[0].data.sports;
+    var content = '您最近一次记录的运动步数为' + latest + '，属于' + getSportsDegree(latest).degree + '; 最近三十次平均步数为' + aver + ',属于' + getSportsDegree(aver).degree + '。' + getSportsDegree(aver).tip;
+    return { type: 'sports', content: content }
+}
+
+/**
  * 获取呼吸等级
  * @param {*} breath 
  */
@@ -108,7 +210,7 @@ function breathReport(result){
     }
     var aver = (total/result.length).toFixed(2);
     var latest = result[0].data.breath;
-    var content = '您最近一次记录的呼吸指数为'+ latest +'，属于'+ getBreatheDegree(latest).degree +'; 最近三十次平均BMI指数为' + aver + ',属于'+ getBreatheDegree(aver).degree +'。' + getBreatheDegree(latest).tip;
+    var content = '您最近一次记录的呼吸指数为'+ latest +'，属于'+ getBreatheDegree(latest).degree +'; 最近三十次平均呼吸为' + aver + ',属于'+ getBreatheDegree(aver).degree +'。' + getBreatheDegree(latest).tip;
     return {type: 'breath', content: content}
 }
 
@@ -145,7 +247,7 @@ function temperatureReport(result){
     }
     var aver = (total/result.length).toFixed(2);
     var latest = result[0].data.temperature;
-    var content = '您最近一次记录的体温指数为'+ latest +'，属于'+ getTemperatureDegree(latest).degree +'; 最近三十次平均BMI指数为' + aver + ',属于'+ getTemperatureDegree(aver).degree +'。' + getTemperatureDegree(latest).tip;
+    var content = '您最近一次记录的体温指数为'+ latest +'，属于'+ getTemperatureDegree(latest).degree +'; 最近三十次平均体温为' + aver + ',属于'+ getTemperatureDegree(aver).degree +'。' + getTemperatureDegree(aver).tip;
     return {type: 'temperature', content: content}
 }
 
@@ -187,7 +289,7 @@ function bloodReport(result){
     var aver_low = (total_low/result.length).toFixed(2);
     var aver_data = {height_blood: aver_height, low_blood: aver_low};
     var latest = result[0].data;
-    var content = '您最近一次记录的血压指数为'+ latest.height_blood + '/' + latest.low_blood +'，属于'+ getBloodDegress(latest).degree +'; 最近三十次平均BMI指数为' + aver_height + '/' + aver_low + ',属于'+ getBloodDegress(aver_data).degree +'。' + getBloodDegress(latest).tip;
+    var content = '您最近一次记录的血压指数为'+ latest.height_blood + '/' + latest.low_blood +'，属于'+ getBloodDegress(latest).degree +'; 最近三十次平均血压为' + aver_height + '/' + aver_low + ',属于'+ getBloodDegress(aver_data).degree +'。' + getBloodDegress(latest).tip;
     return {type: 'blood', content: content}
 }
 
@@ -224,7 +326,7 @@ function rateReport(result){
     }
     var aver = (total/result.length).toFixed(2);
     var latest = result[0].data.rate;
-    var content = '您最近一次记录的心率指数为'+ latest +'，属于'+ getRateDegree(latest).degree +'; 最近三十次平均BMI指数为' + aver + ',属于'+ getRateDegree(aver).degree +'。' + getRateDegree(latest).tip;
+    var content = '您最近一次记录的心率指数为'+ latest +'，属于'+ getRateDegree(latest).degree +'; 最近三十次平均心率为' + aver + ',属于'+ getRateDegree(aver).degree +'。' + getRateDegree(latest).tip;
     return {type: 'rate', content: content}
 }
 

@@ -1,0 +1,19 @@
+.content{
+    padding: 1em;
+}
+.item{
+    margin-bottom: 1em;
+}
+.header{
+    /* background: rgb(221, 114, 114); */
+    color: rgb(221, 114, 114);
+    font-size: 1.4em;
+    padding: 0.5em;
+    border-bottom: 1px solid black;
+}
+.content{
+    color: #333;
+}
+p{
+    text-indent: 2em;
+}

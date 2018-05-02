@@ -218,13 +218,14 @@
 //var api_host = 'http://www.moronghui.cn:4000/api/'; //服务器
 var api_host = 'http://localhost:4000/api/';  //本地调试
 
-function ajaxFun(type, url, data, success_callback, error_callback){
+function ajaxFun(type, url, data, success_callback, complete_callback, error_callback){
     $.ajax({
         type: type,
         url: url,
         data: data,
         success: success_callback,
-        error: error_callback
+        error: error_callback,
+        complete: complete_callback
     })
 }
 
@@ -333,8 +334,8 @@ function getData(data){
 /**
  * 根据类型返回标题文字
  */
-function getTitle(){
-    var type = getType();
+function getTitle(type){
+    var type = type ? type : getType();
     switch (type) {
         case 'blood':
             return '血压';
@@ -426,4 +427,24 @@ function getQueryId(params) {
         }
     }
     return id;
+}
+
+/**
+ * 显示加载框
+ */
+function showLoading(text) {
+    $.mobile.loading('show', {
+        text: text, //加载器中显示的文字  
+        textVisible: true, //是否显示文字  
+        theme: 'c',        //加载器主题样式a-e  
+        textonly: false,   //是否只显示文字  
+        html: ""           //要显示的html内容，如图片等  
+    });
+}
+
+/**
+ * 隐藏加载框
+ */
+function hideLoading() {
+    $.mobile.loading('hide');
 }
