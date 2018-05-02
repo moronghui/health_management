@@ -25,7 +25,9 @@ exports.page_path = [
     '/static/addmedicalrecord.html',
     '/static/editmedicalrecord.html',
     '/static/medicalrecord.html',
-    '/static/report.html'
+    '/static/report.html',
+    '/static/guide.html',
+    '/static/physicalExam.html'
 ]
 
 //需要验证的接口
